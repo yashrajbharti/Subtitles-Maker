@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Subtitles Maker | AI Audio to SRT Converter</title>
+    <meta name="description" content="Free, in-browser AI tool to extract transcripts and generate SRT subtitles from any audio or video file using Whisper AI. No server uploads required." />
+    <meta name="keywords" content="subtitles maker, AI subtitles, Whisper AI, audio to SRT, JSON to SRT, auto transcribe, free subtitle generator, browser AI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Subtitles Maker" />
+    
+    <!-- Emoji Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script type="module" src="./dist/material-web-bundle.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <md-tabs aria-label="Tool Selection" class="main-tabs">
+        <md-primary-tab id="tab-extract" aria-controls="panel-extract" active>
+            <md-icon slot="icon">graphic_eq</md-icon>
+            Audio to JSON
+        </md-primary-tab>
+        <md-primary-tab id="tab-convert" aria-controls="panel-convert">
+            <md-icon slot="icon">subtitles</md-icon>
+            JSON to SRT
+        </md-primary-tab>
+    </md-tabs>
+
+    <!-- TAB 1: AUDIO TO JSON EXTRACTOR -->
+    <div id="panel-extract" class="tab-panel container glass" role="tabpanel" aria-labelledby="tab-extract">
+        <h1>AI Audio to JSON Extractor</h1>
+        <p class="subtitle">Extract transcripts and timestamps from any video or audio file using Whisper AI directly in
+            your browser.</p>
+
+        <div class="controls" id="uploadArea">
+            <md-ripple></md-ripple>
+            <input type="file" id="mediaInput" accept="video/*,audio/*" class="file-input" />
+        </div>
+
+
+
+        <div class="result-area" id="resultArea">
+            <md-outlined-text-field type="textarea" id="outputJson" readOnly
+                placeholder="Live SRT output will appear here..." rows="15"></md-outlined-text-field>
+            <md-filled-button id="downloadBtn" class="full-width-btn">
+                <md-icon slot="icon">download</md-icon>
+                Download JSON
+            </md-filled-button>
+        </div>
+    </div>
+
+    <!-- TAB 2: JSON TO SRT CONVERTER -->
+    <div id="panel-convert" class="tab-panel container glass" role="tabpanel" aria-labelledby="tab-convert" hidden>
+        <h1>JSON to SRT Converter</h1>
+        <p class="subtitle">Convert your Whisper AI JSON transcripts directly into standard SRT subtitle files
+            instantly.</p>
+
+        <div class="controls">
+            <md-ripple></md-ripple>
+            <input type="file" id="fileInput" accept=".json" class="file-input" />
+        </div>
+
+        <md-outlined-text-field type="textarea" id="output" readOnly placeholder="SRT output will appear here..."
+            rows="15"></md-outlined-text-field>
+        <md-filled-button id="downloadSrtBtn" class="full-width-btn">
+            <md-icon slot="icon">download</md-icon>
+            Download SRT
+        </md-filled-button>
+    </div>
+
+    <!-- GLOBAL PROGRESS SNACKBAR -->
+    <div class="snackbar hidden" id="progressArea">
+        <div class="snackbar-content">
+            <md-circular-progress id="progressFill" indeterminate></md-circular-progress>
+            <div class="snackbar-text-area">
+                <p id="statusText" class="status-text">Initializing AI Model...</p>
+            </div>
+        </div>
+        <md-icon-button id="dismissSnackbarBtn" title="Dismiss">
+            <md-icon>close</md-icon>
+        </md-icon-button>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
