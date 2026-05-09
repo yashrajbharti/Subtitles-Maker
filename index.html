@@ -23,7 +23,7 @@
     <md-tabs aria-label="Tool Selection" class="main-tabs">
         <md-primary-tab id="tab-extract" aria-controls="panel-extract" active>
             <md-icon slot="icon">graphic_eq</md-icon>
-            Audio to JSON
+            Audio to SRT
         </md-primary-tab>
         <md-primary-tab id="tab-convert" aria-controls="panel-convert">
             <md-icon slot="icon">subtitles</md-icon>
@@ -31,9 +31,9 @@
         </md-primary-tab>
     </md-tabs>
 
-    <!-- TAB 1: AUDIO TO JSON EXTRACTOR -->
+    <!-- TAB 1: AUDIO TO SRT GENERATOR -->
     <div id="panel-extract" class="tab-panel container glass" role="tabpanel" aria-labelledby="tab-extract">
-        <h1>AI Audio to JSON Extractor</h1>
+        <h1>AI Audio to SRT Generator</h1>
         <p class="subtitle">Extract transcripts and timestamps from any video or audio file using Whisper AI directly in
             your browser.</p>
 
@@ -49,7 +49,7 @@
                 placeholder="Live SRT output will appear here..." rows="15"></md-outlined-text-field>
             <md-filled-button id="downloadBtn" class="full-width-btn">
                 <md-icon slot="icon">download</md-icon>
-                Download JSON
+                Download Subtitle
             </md-filled-button>
         </div>
     </div>
@@ -69,7 +69,7 @@
             rows="15"></md-outlined-text-field>
         <md-filled-button id="downloadSrtBtn" class="full-width-btn">
             <md-icon slot="icon">download</md-icon>
-            Download SRT
+            Download Subtitle
         </md-filled-button>
     </div>
 
